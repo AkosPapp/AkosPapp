@@ -1,5 +1,6 @@
-# 👋 Hi, I'm Akos Papp
+# 👋 Hi, I'm Akos Papp (Ákos Papp)
 
+🌐 **[akosp.app](https://akosp.app)** — personal website with my full competition record and projects  
 🎓 **B.Sc. Computer Engineering Student at [TU Wien](https://www.tuwien.at/en/)** (since Fall 2026)  
 💼 DevOps · 🤖 Robotics · 🧠 AI  
 📍 Vienna, Austria  
@@ -69,6 +70,7 @@ Also: [nix_autobuild](https://github.com/AkosPapp/nix_autobuild) (Rust) and [nix
 
 ## 🔗 Connect
 
+- 🌐 [akosp.app](https://akosp.app)
 - 💼 [LinkedIn](https://at.linkedin.com/in/it-akos-papp)
 - 🤖 [robo4you.at](https://robo4you.at) · [flyby racing](https://robo4you.at/teams/)
 - 🌍 Languages: Hungarian (native) · German (C1, ÖSD) · English (C2, CAE)

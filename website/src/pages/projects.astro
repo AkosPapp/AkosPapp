@@ -1,0 +1,42 @@
+---
+import Base from "../layouts/base.astro";
+import { projects } from "../data";
+---
+
+<Base
+  title="Projects — Akos Papp"
+  description="Akos Papp's projects: a multi-host NixOS monorepo, flyby racing autonomous drones, a diploma thesis on UWB/IMU positioning with ROS 2 and Rust."
+  active="Projects"
+>
+  <h1>Projects</h1>
+  <p class="muted intro">
+    A few things I've built or helped build — mostly self-hosted, mostly reproducible.
+  </p>
+
+  <section>
+    {projects.map((p) => (
+      <div class="entry solo">
+        <div>
+          <span class="tag">{p.tag}</span>
+          <h3>{p.href ? <a class="accent" href={p.href}>{p.name}</a> : p.name}</h3>
+          <p>{p.text}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <style>
+    h1 { margin-bottom: 0.9rem; }
+    .intro { max-width: 44rem; margin-bottom: 2.6rem; }
+    .tag {
+      display: inline-block;
+      font-family: ui-monospace, "Cascadia Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      border: 1px solid var(--line-strong);
+      border-radius: 99px;
+      padding: 0.05rem 0.55rem;
+      margin-bottom: 0.45rem;
+    }
+  </style>
+</Base>

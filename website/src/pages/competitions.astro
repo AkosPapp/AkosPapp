@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/base.astro";
+import { results } from "../data";
+---
+
+<Base
+  title="Competition results — Akos Papp"
+  description="Akos Papp's international robotics competition record: IEIIC world champion 2026, A2RL Abu Dhabi winner, VEX AI Worlds and Botball Worlds medalist."
+  active="Competitions"
+>
+  <h1>Competitions</h1>
+  <p class="muted intro">
+    Growing up in the <a class="accent" href="https://robo4you.at">robo4you</a> robotics
+    club of HTL Wiener Neustadt meant one competition season after another — educational
+    robotics leagues where teams build, program and document everything themselves. What
+    started as a third place in Vienna in 2023 ended on world-championship podiums on
+    three continents.
+  </p>
+
+  <section>
+    {results.map((r) => (
+      <div class="entry">
+        <span class="year">{r.year}</span>
+        <div>
+          <h3>{r.title}</h3>
+          <p class="place">{r.place}</p>
+          <p>{r.text}</p>
+          <p class="team">{r.team}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <style>
+    h1 { margin-bottom: 0.9rem; }
+    .intro { max-width: 44rem; margin-bottom: 2.6rem; }
+  </style>
+</Base>

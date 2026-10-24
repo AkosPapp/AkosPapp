@@ -1,0 +1,92 @@
+---
+import Base from "../layouts/base.astro";
+import { results, projects } from "../data";
+
+const featured = results.slice(0, 4);
+const tags = ["Robotics", "AI", "DevOps", "NixOS"];
+---
+
+<Base
+  title="Akos Papp — Robotics · AI · DevOps | TU Wien"
+  description="Ákos (Akos) Papp: Computer Engineering student at TU Wien, IEIIC world champion and international robotics competitor. Autonomous systems, drone racing, and reproducible NixOS infrastructure in Vienna."
+  active="Home"
+>
+  <section class="hero">
+    <p class="greeting">Hi, I'm</p>
+    <h1>Akos Papp.</h1>
+    <p class="lede">
+      I build autonomous systems — from quadruped robots and racing drones to the
+      NixOS infrastructure underneath them.
+    </p>
+    <p class="sub muted">
+      Computer Engineering student at TU Wien, Vienna. Multiple-time medalist at
+      international robotics championships.
+    </p>
+    <div class="tags">
+      {tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected recognition</h2>
+    {featured.map((r) => (
+      <div class="entry">
+        <span class="year">{r.year}</span>
+        <div>
+          <h3>{r.title}</h3>
+          <p class="place">{r.place}</p>
+        </div>
+      </div>
+    ))}
+    <p class="more"><a class="accent" href="/competitions/">Full competition record →</a></p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    {projects.slice(0, 2).map((p) => (
+      // eslint-disable-next-line
+      p.href ? (
+        <a class="card" href={p.href}>
+          <span class="tag">{p.tag}</span>
+          <h3>{p.name}</h3>
+          <p>{p.text}</p>
+        </a>
+      ) : (
+        <div class="card">
+          <span class="tag">{p.tag}</span>
+          <h3>{p.name}</h3>
+          <p>{p.text}</p>
+        </div>
+      )
+    ))}
+    <p class="more"><a class="accent" href="/projects/">All projects →</a></p>
+  </section>
+
+  <style>
+    .hero { margin-bottom: 3.8rem; }
+    .greeting {
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+    .hero h1 { margin-bottom: 1.1rem; }
+    .lede {
+      font-size: 1.18rem;
+      line-height: 1.6;
+      max-width: 40ch;
+      margin-bottom: 0.6rem;
+    }
+    .sub { max-width: 46ch; margin-bottom: 1.4rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag {
+      font-family: ui-monospace, "Cascadia Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 99px;
+      padding: 0.1rem 0.65rem;
+    }
+    .tags .tag:hover { border-color: var(--accent); color: var(--accent); }
+  </style>
+</Base>

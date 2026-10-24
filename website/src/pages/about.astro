@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/base.astro";
+import { experience, press, skills } from "../data";
+---
+
+<Base
+  title="About Akos Papp — background, experience & press"
+  description="About Akos Papp: background, experience, press coverage and skills."
+  active="About"
+>
+  <h1>About</h1>
+
+  <section class="prose">
+    <p>
+      I'm Ákos Papp — everyone calls me Akos. I grew up in Wiener Neustadt, Austria —
+      Hungarian by mother tongue, Austrian by education. A hobby robotics club at
+      <a class="accent" href="https://www.htlwrn.ac.at">HTL Wiener Neustadt</a>
+      turned into a decade of competition seasons, and I'm now studying Computer
+      Engineering at TU Wien while competing with
+      <a class="accent" href="https://robo4you.at/teams/">flyby racing</a>,
+      an autonomous drone racing team of university and high-school students.
+    </p>
+    <p>
+      My focus sits at the intersection of robotics, AI and DevOps: I like systems that
+      perceive, decide and act on their own — and the reproducible infrastructure that
+      lets me rebuild them from a git repo. When I'm not competing, I maintain a
+      multi-host NixOS setup where every service is one line of config away.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    {experience.map((e) => (
+      <div class="entry">
+        <span class="year">{e.period}</span>
+        <div>
+          <h3>{e.role}</h3>
+          <p class="place">{e.org}</p>
+          <p>{e.text}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="kv">
+      {skills.map((s) => (
+        <div>
+          <dt>{s.group}</dt>
+          <dd>{s.text}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section>
+    <h2>In the press</h2>
+    {press.map((p) => (
+      <div class="entry solo">
+        <div>
+          <h3>{p.label}</h3>
+          <div class="linkrow">
+            {p.links.map((l) => <a href={l.href}>{l.name}</a>)}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <style>
+    h1 { margin-bottom: 1.6rem; }
+    .prose { max-width: 44rem; }
+  </style>
+</Base>
